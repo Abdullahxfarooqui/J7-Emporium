@@ -1,0 +1,81 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install"
+		},
+		{
+			"label": "Check Node.js",
+			"type": "shell",
+			"command": "node --version"
+		},
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"group": "build"
+		},
+		{
+			"label": "Verify Node",
+			"type": "shell",
+			"command": "node -v; npm -v",
+			"group": "test"
+		},
+		{
+			"label": "Verify Node & npm",
+			"type": "shell",
+			"command": "node -v; npm -v"
+		},
+		{
+			"label": "Check Node and npm versions",
+			"type": "shell",
+			"command": "node -v; npm -v"
+		},
+		{
+			"label": "Check Node version",
+			"type": "shell",
+			"command": "node -v"
+		},
+		{
+			"label": "Fix execution policy and install",
+			"type": "shell",
+			"command": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; npm install"
+		},
+		{
+			"label": "Start Dev Server",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Download all assets",
+			"type": "shell",
+			"command": "powershell -ExecutionPolicy Bypass -File download-assets.ps1"
+		},
+		{
+			"label": "Download assets from GitHub",
+			"type": "shell",
+			"command": "powershell -ExecutionPolicy Bypass -File .\\download-assets.ps1"
+		},
+		{
+			"label": "Restart Dev Server",
+			"type": "shell",
+			"command": "npm run dev",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Download web-bg.png",
+			"type": "shell",
+			"command": "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Abdullahxfarooqui/J7-Emporium/main/web-bg.png' -OutFile 'web-bg.png'"
+		},
+		{
+			"label": "Move team images to public folder",
+			"type": "shell",
+			"command": "New-Item -ItemType Directory -Force -Path 'public/assets/images/team' | Out-Null; Copy-Item -Path 'our-team-images/*' -Destination 'public/assets/images/team/' -Force"
+		}
+	]
+}
