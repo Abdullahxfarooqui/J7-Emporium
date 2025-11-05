@@ -159,35 +159,62 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
               A breathtaking 30-storey architectural marvel in B-17 Islamabad, 
               redefining luxury living with world-class amenities and unparalleled elegance
             </p>
 
+            {/* EcoSphere360 Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
+              className="mb-10"
+            >
+              <div className="inline-flex items-center justify-center space-x-2 bg-gray-800/40 border border-emerald-500/20 px-5 py-2 rounded-full backdrop-blur-md shadow-lg hover:border-emerald-500/40 transition-all duration-300 group">
+                <motion.svg
+                  animate={{ 
+                    rotate: [0, 360],
+                  }}
+                  transition={{ 
+                    duration: 20, 
+                    repeat: Infinity, 
+                    ease: "linear" 
+                  }}
+                  className="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </motion.svg>
+                <span className="text-sm md:text-base font-medium tracking-wide">
+                  <span className="text-gray-300">Powered by</span>
+                  {' '}
+                  <span 
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-semibold group-hover:from-emerald-300 group-hover:to-teal-200 transition-all duration-300"
+                  >
+                    EcoSphere360
+                  </span>
+                </span>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex justify-center items-center"
             >
               <Link href="/contact">
                 <motion.button
                   whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(16, 185, 129, 0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-full shadow-2xl shadow-emerald-500/30 flex items-center gap-2"
+                  className="group px-10 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-lg rounded-full shadow-2xl shadow-emerald-500/30 flex items-center gap-2"
                 >
                   Explore Now
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </Link>
-
-              <Link href="/about">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-full border border-white/20 hover:bg-white/20 transition-all"
-                >
-                  Learn More
                 </motion.button>
               </Link>
             </motion.div>

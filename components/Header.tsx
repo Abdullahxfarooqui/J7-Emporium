@@ -42,6 +42,7 @@ const Header = () => {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/team', label: 'Team' },
+    { href: '/ecosphere360', label: 'EcoSphere360' },
     { href: '/careers', label: 'Careers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
@@ -60,37 +61,23 @@ const Header = () => {
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-8 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo Section - Refined & Balanced */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          {/* Logo Section - Clean Minimalistic */}
+          <Link href="/" className="flex items-center group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
               className="relative"
             >
-              {/* Logo Container with Subtle Enhancement */}
-              <div className="relative bg-gray-800/40 rounded-xl px-3 py-2 border border-gray-700/30 group-hover:border-emerald-500/30 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-emerald-500/10">
-                <Image
-                  src="/assets/images/j7-logo.jpg"
-                  alt="J7 Emporium"
-                  width={140}
-                  height={45}
-                  priority
-                  quality={95}
-                  className="h-10 w-auto object-contain"
-                  style={{
-                    filter: 'brightness(1.1) contrast(1.05) drop-shadow(0 0 8px rgba(16,185,129,0.15))',
-                  }}
-                />
-              </div>
+              <Image
+                src="/assets/images/j7-logo.jpg"
+                alt="J7 Emporium"
+                width={120}
+                height={40}
+                priority
+                className="rounded-md object-contain h-10 w-auto"
+              />
             </motion.div>
-            
-            {/* Optional Brand Text - Hidden on mobile */}
-            <div className="hidden sm:block">
-              <span className="text-white font-semibold text-lg tracking-wide group-hover:text-emerald-400 transition-colors duration-300">
-                J7 Emporium
-              </span>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -130,8 +117,41 @@ const Header = () => {
             })}
           </ul>
 
-          {/* CTA Buttons - Desktop */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Area - Desktop (Login + EcoSphere360) */}
+          <div className="hidden lg:flex items-center gap-8">
+            {/* EcoSphere360 Tagline with Animated Gradient */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="flex items-center gap-2 group"
+            >
+              <span className="text-sm text-gray-400 font-medium tracking-wide">Powered by</span>
+              <motion.span
+                className="text-base font-bold tracking-wide relative"
+                style={{
+                  background: 'linear-gradient(120deg, #10b981, #14b8a6, #fbbf24)',
+                  backgroundSize: '200% 100%',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+              >
+                EcoSphere360
+              </motion.span>
+              {/* Subtle underline on hover */}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 group-hover:w-full transition-all duration-500 rounded-full" />
+            </motion.div>
+
+            {/* Login Button - Refined Styling */}
             <a
               href="http://115.167.72.44:8002/"
               target="_blank"
@@ -139,24 +159,16 @@ const Header = () => {
               aria-label="Login"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 8px 25px rgba(26, 60, 52, 0.4)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(16,185,129,0.3)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white font-semibold text-sm border border-gray-700/50 hover:border-emerald-500/30 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
+                className="px-8 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold text-sm shadow-lg transition-all duration-300"
+                style={{
+                  letterSpacing: '0.05em',
+                }}
               >
                 Login
               </motion.button>
             </a>
-            
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(16,185,129,0.3)' }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-6 py-2.5 rounded-full font-semibold text-sm shadow-lg shadow-emerald-500/20 transition-all duration-300"
-              >
-                <Phone className="w-4 h-4" />
-                Get in Touch
-              </motion.button>
-            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -245,12 +257,11 @@ const Header = () => {
                   })}
                 </nav>
 
-                {/* Mobile CTA Buttons */}
+                {/* Mobile CTA Button */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="space-y-3"
                 >
                   <a
                     href="http://115.167.72.44:8002/"
@@ -258,17 +269,10 @@ const Header = () => {
                     rel="noopener noreferrer"
                     aria-label="Login"
                   >
-                    <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-xl font-semibold border border-gray-700/50 hover:border-emerald-500/30 shadow-md hover:shadow-lg transition-all duration-300">
+                    <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-500/20 transition-all duration-300">
                       Login
                     </button>
                   </a>
-                  
-                  <Link href="/contact">
-                    <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-emerald-500/20 transition-all duration-300">
-                      <Phone className="w-5 h-5" />
-                      Get in Touch
-                    </button>
-                  </Link>
                 </motion.div>
 
                 {/* Divider */}
@@ -283,6 +287,38 @@ const Header = () => {
                 >
                   <p className="mb-1">+92 337 77 77 700</p>
                   <p className="text-xs text-gray-500">thej7emporium@gmail.com</p>
+                </motion.div>
+
+                {/* EcoSphere360 Tagline - Enhanced Mobile */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-center space-y-2"
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-xs text-gray-400 font-medium">Powered by</span>
+                    <motion.span
+                      className="text-sm font-bold"
+                      style={{
+                        background: 'linear-gradient(120deg, #10b981, #14b8a6, #fbbf24)',
+                        backgroundSize: '200% 100%',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                      }}
+                      animate={{
+                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'linear',
+                      }}
+                    >
+                      EcoSphere360
+                    </motion.span>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
