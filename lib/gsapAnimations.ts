@@ -48,7 +48,7 @@ export const fadeUpOnScroll = (
       delay,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=100',
         end: 'bottom center',
         toggleActions: 'play none none reverse',
@@ -83,7 +83,7 @@ export const fadeInOnScroll = (
       delay,
       ease: 'power2.out',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=50',
         toggleActions: 'play none none reverse',
       },
@@ -120,7 +120,7 @@ export const slideInFromLeft = (
       delay,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=100',
         toggleActions: 'play none none reverse',
       },
@@ -157,7 +157,7 @@ export const slideInFromRight = (
       delay,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=100',
         toggleActions: 'play none none reverse',
       },
@@ -194,7 +194,7 @@ export const scaleUpOnScroll = (
       delay,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=100',
         toggleActions: 'play none none reverse',
       },
@@ -231,7 +231,7 @@ export const staggerReveal = (
       stagger,
       ease: 'power3.out',
       scrollTrigger: {
-        trigger: trigger || elements,
+        trigger: trigger || (elements as gsap.DOMTarget),
         start: 'top bottom-=100',
         toggleActions: 'play none none reverse',
       },
@@ -263,7 +263,7 @@ export const parallaxEffect = (
       yPercent,
       ease: 'none',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom',
         end: 'bottom top',
         scrub,
@@ -308,7 +308,7 @@ export const revealOnScroll = (
       delay,
       ease: 'power3.inOut',
       scrollTrigger: {
-        trigger: trigger || element,
+        trigger: trigger || (element as gsap.DOMTarget),
         start: 'top bottom-=100',
         toggleActions: 'play none none reverse',
       },
