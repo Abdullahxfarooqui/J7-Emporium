@@ -74,7 +74,7 @@ export default function AboutPage() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.4, 0, 0.2, 1] as any,
       },
     },
@@ -84,7 +84,7 @@ export default function AboutPage() {
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-b from-[#0a0e10] via-[#0f1418] to-[#141a1f] text-white overflow-x-hidden"
     >
       {/* Hero Section with Parallax */}
@@ -138,13 +138,13 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             className="text-center"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#0f6039]/20 to-[#1a8b52]/20 border border-[#0f6039]/30 backdrop-blur-sm mb-8"
             >
               <Sparkles className="w-5 h-5 text-[#0f6039]" />
@@ -163,7 +163,7 @@ export default function AboutPage() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-inter leading-relaxed mb-12"
             >
               A pioneering development that sets a new standard for luxury and innovation. 
@@ -173,7 +173,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
               className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             >
               <Link href="#our-story">
@@ -203,7 +203,7 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
           transition={{
-            opacity: { delay: 1.5, duration: 0.8 },
+            opacity: { delay: 0.8, duration: 0.5 },
             y: { duration: 2, repeat: Infinity },
           }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
@@ -221,7 +221,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-20"
           >
             <span className="inline-block text-sm font-inter font-semibold text-[#0f6039] uppercase tracking-wider mb-4">
@@ -241,7 +241,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="relative"
             >
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
@@ -260,7 +260,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 className="absolute -bottom-8 -right-8 bg-gradient-to-br from-[#0f6039] to-[#1a8b52] p-8 rounded-2xl shadow-2xl"
               >
                 <div className="text-center">
@@ -308,7 +308,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-20"
           >
             <span className="inline-block text-sm font-inter font-semibold text-[#0f6039] uppercase tracking-wider mb-4">
@@ -328,7 +328,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:border-[#0f6039]/50 transition-all duration-500 cursor-pointer overflow-hidden"
               >
@@ -377,14 +377,14 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, type: 'spring', stiffness: 150 }}
+              transition={{ duration: 0.3, type: 'spring', stiffness: 150 }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 backdrop-blur-xl px-6 py-3 rounded-full mb-6 border border-emerald-500/20 shadow-xl shadow-emerald-500/10"
             >
               <Sparkles className="w-5 h-5 text-emerald-400" />
@@ -407,7 +407,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.06 }}
               whileHover={{ y: -12, transition: { duration: 0.3 } }}
               className="group relative"
             >
@@ -458,7 +458,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.4, delay: 0.12 }}
               whileHover={{ y: -12, transition: { duration: 0.3 } }}
               className="group relative"
             >
@@ -509,7 +509,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.18 }}
               whileHover={{ y: -12, transition: { duration: 0.3 } }}
               className="group relative"
             >
@@ -561,7 +561,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.24 }}
             className="mt-16 text-center"
           >
             <div className="relative inline-block">
@@ -583,7 +583,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
             <span className="inline-block text-sm font-inter font-semibold text-[#0f6039] uppercase tracking-wider mb-4">
@@ -606,7 +606,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-[#0f6039]/50 transition-all duration-500"
               >
@@ -667,7 +667,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="relative"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#0f6039]/20 to-[#1a8b52]/10 rounded-3xl blur-2xl" />
@@ -719,7 +719,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-300 px-5 py-2.5 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20">
@@ -738,7 +738,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as any }}
               className="relative group"
             >
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
@@ -777,7 +777,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] as any }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as any }}
               className="space-y-8"
             >
               <div className="relative">
@@ -808,7 +808,7 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    transition={{ duration: 0.3, delay: 0.2 + index * 0.06 }}
                     className="bg-[#1a1f26] rounded-xl p-4 border border-gray-800/50 hover:border-emerald-500/30 transition-all duration-300"
                   >
                     <div className="text-2xl font-bold text-emerald-400 mb-1">{item.label}</div>

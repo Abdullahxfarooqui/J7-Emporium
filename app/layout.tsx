@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   keywords: "J7 Emporium, Islamabad real estate, B-17 Sector, luxury apartments, commercial shops, Pakistan property",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,9 +31,9 @@ export default function RootLayout({
           type="image/webp"
         />
       </head>
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden">
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

@@ -126,16 +126,19 @@ export default function TeamPage() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1] as any,
       },
     },
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0D1117] via-[#111827] to-[#0D1117]">
+    // LAYOUT FIX: Reduced top padding to pt-16 for better mobile layout on tall aspect ratios
+    // Added overflow-x-hidden to prevent horizontal scroll and keep content within viewport
+    <div className="bg-gradient-to-br from-[#0D1117] via-[#111827] to-[#0D1117] pt-16 overflow-x-hidden">
       {/* 1️⃣ Hero / Intro Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
+      {/* LAYOUT FIX: Changed to min-h-[100svh] for better mobile viewport handling */}
+      <section className="relative min-h-[100svh] flex items-center justify-center px-4 py-16 w-full">
         {/* Animated Particle Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-950">
           {/* Floating Particles */}
@@ -169,9 +172,9 @@ export default function TeamPage() {
           </motion.div>
           
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight"
           >
             <span className="text-white">Meet Our</span>
@@ -183,14 +186,14 @@ export default function TeamPage() {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="w-32 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto mb-8 rounded-full"
           />
           
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             A collective of passionate innovators, strategic thinkers, and industry leaders dedicated to crafting exceptional experiences. 
@@ -343,7 +346,7 @@ export default function TeamPage() {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-800/50 hover:border-emerald-500/30 transition-all duration-500 shadow-xl hover:shadow-emerald-500/10`}
               >
                 {/* Image */}
@@ -442,7 +445,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
           >
             {[
@@ -473,7 +476,7 @@ export default function TeamPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
+                transition={{ duration: 0.3, delay: index * 0.08 }}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
                 className="group relative bg-gradient-to-br from-gray-900/80 to-gray-950/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-800 hover:border-emerald-500/50 transition-all duration-500 shadow-xl hover:shadow-emerald-500/20"
               >
@@ -512,7 +515,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="relative bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-emerald-500/20 shadow-2xl shadow-emerald-500/10 overflow-hidden"
           >
             {/* Decorative Elements */}
@@ -564,7 +567,7 @@ export default function TeamPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="max-w-4xl mx-auto text-center relative z-10"
         >
           <motion.div
@@ -586,7 +589,7 @@ export default function TeamPage() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="w-32 h-1 bg-gradient-to-r from-transparent via-white/80 to-transparent mx-auto mb-8 rounded-full"
           />
           

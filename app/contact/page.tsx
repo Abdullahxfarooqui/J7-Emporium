@@ -63,14 +63,14 @@ export default function ContactPage() {
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as any }}
           >
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-flex items-center gap-2 bg-emerald-500/10 backdrop-blur-sm text-emerald-300 px-5 py-2.5 rounded-full mb-8 text-sm font-semibold border border-emerald-500/20"
             >
               <MessageSquare className="w-4 h-4" />
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto"
             >
               Thank you for visiting our website! We would love to hear from you. Whether you have a question, feedback, or simply want to say hello, we're here to help. Please feel free to contact us using the information below or by filling out the form. We strive to respond promptly.
@@ -108,7 +108,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.06 }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 className="group relative bg-gradient-to-br from-[#1a1f26] to-[#151a20] rounded-2xl p-8 border border-gray-800/50 hover:border-emerald-500/30 transition-all duration-500"
               >
@@ -136,7 +136,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -146,10 +146,10 @@ export default function ContactPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="bg-gradient-to-br from-[#1a1f26] to-[#151a20] rounded-3xl p-8 md:p-12 border border-gray-800/50"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -295,7 +295,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-12"
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-300 px-5 py-2.5 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20">
@@ -311,7 +311,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             className="bg-gradient-to-br from-[#1a1f26] to-[#151a20] rounded-3xl p-8 md:p-12 border border-gray-800/50"
           >
             <p className="text-xl text-gray-300 leading-relaxed text-center italic">

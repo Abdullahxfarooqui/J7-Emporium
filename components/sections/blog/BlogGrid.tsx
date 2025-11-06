@@ -1,8 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BlogCard from './BlogCard';
+
+// Register GSAP ScrollTrigger
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const blogPosts = [
   {
@@ -48,27 +55,70 @@ const blogPosts = [
 ];
 
 export default function BlogGrid() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // GSAP scroll-triggered animations for blog cards
+  useEffect(() => {
+    if (cardsRef.current.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      cardsRef.current.forEach((card, index) => {
+        if (!card) return;
+
+        gsap.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.4, // Faster: was 0.6
+            delay: index * 0.06, // Faster: was 0.1
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top bottom-=100',
+              end: 'bottom top',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+    <section ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-28">
+      {/* Optimized container padding for 1024x1366 tablet view */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="font-sora text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-sora text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Insights</span>
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto px-4">
             Deep dives into smart living, sustainable architecture, and the future of real estate in Pakistan
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Responsive grid optimized for 1024x1366 (2 columns) and other devices */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-6 md:gap-7 lg:gap-8">
           {blogPosts.map((post, index) => (
-            <BlogCard key={post.slug} {...post} index={index} />
+            <div key={post.slug} ref={(el) => { cardsRef.current[index] = el; }}>
+              <BlogCard {...post} index={index} />
+            </div>
           ))}
         </div>
       </div>

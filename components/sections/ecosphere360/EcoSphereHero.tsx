@@ -6,7 +6,9 @@ import { fadeInUp, slideIn, staggerContainer, staggerItem } from '@/lib/motion';
 
 export default function EcoSphereHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0e1418]">
+    // LAYOUT FIX: Changed to min-h-[100svh] for better mobile viewport handling on tall screens
+    // Removed overflow-hidden to prevent clipping header/mobile menu
+    <section className="relative min-h-[100svh] flex items-center justify-center bg-[#0e1418]">
       {/* Animated Background Gradients */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
@@ -23,12 +25,12 @@ export default function EcoSphereHero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12 md:py-20">
         <motion.div
           initial="initial"
           animate="animate"
           variants={staggerContainer}
-          className="text-center space-y-8"
+          className="text-center space-y-6 md:space-y-8"
         >
           {/* Badge */}
           <motion.div variants={fadeInUp} className="inline-flex">

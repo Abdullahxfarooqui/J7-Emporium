@@ -25,7 +25,10 @@ export const metadata: Metadata = {
 
 export default function EcoSphere360Page() {
   return (
-    <div className="bg-[#0e1418]">
+    // LAYOUT FIX: Reduced top padding to pt-16 for better mobile layout on tall aspect ratios
+    // Added overflow-x-hidden to prevent horizontal scroll and keep content within viewport
+    // Added relative positioning and z-index:1 for proper stacking context
+    <div className="bg-[#0e1418] pt-16 relative overflow-x-hidden" style={{ zIndex: 1 }}>
       {/* Hero Section */}
       <EcoSphereHero />
 

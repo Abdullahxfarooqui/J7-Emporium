@@ -20,8 +20,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
@@ -32,7 +32,7 @@ export default function Home() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1] as any,
       },
     },
@@ -108,8 +108,10 @@ export default function Home() {
             fill
             priority
             className="object-cover"
-            quality={100}
-            sizes="100vw"
+            quality={75}
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0D1117]/70 via-[#0D1117]/50 to-[#0D1117]" />
         </motion.div>
@@ -121,23 +123,24 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-7xl mx-auto w-full">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as any }}
+            className="max-w-5xl mx-auto"
           >
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
               className="inline-flex items-center gap-2 bg-emerald-500/10 backdrop-blur-xl px-6 py-3 rounded-full mb-8 border border-emerald-500/20"
             >
               <Sparkles className="w-5 h-5 text-emerald-400" />
               <span className="text-sm font-semibold text-emerald-300">Premium Luxury Living</span>
             </motion.div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 tracking-tight px-4">
               <span 
                 className="relative inline-block"
                 style={{
@@ -168,7 +171,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
+              transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
               className="mb-10"
             >
               <div className="inline-flex items-center justify-center space-x-2 bg-gray-800/40 border border-emerald-500/20 px-5 py-2 rounded-full backdrop-blur-md shadow-lg hover:border-emerald-500/40 transition-all duration-300 group">
@@ -204,7 +207,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
               className="flex justify-center items-center"
             >
               <Link href="/contact">
@@ -224,7 +227,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
             className="absolute bottom-12"
           >
             <motion.div
@@ -244,7 +247,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {stats.map((stat, index) => (
@@ -253,7 +256,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.06 }}
                 className="text-center"
               >
                 <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-2">
@@ -289,7 +292,7 @@ export default function Home() {
                   alt="J7 Emporium Architecture"
                   fill
                   className="object-cover"
-                  quality={90}
+                  quality={75}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1117]/60 to-transparent" />
@@ -300,7 +303,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
                 className="absolute -bottom-6 -right-6 bg-gradient-to-br from-emerald-500 to-teal-600 p-8 rounded-2xl shadow-2xl"
               >
                 <div className="text-center">
@@ -361,14 +364,14 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.3, delay: 0.06 }}
               className="inline-flex items-center gap-2 bg-emerald-500/10 backdrop-blur-sm text-emerald-300 px-5 py-2.5 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20 shadow-lg shadow-emerald-500/5"
             >
               <Sparkles className="w-4 h-4" />
@@ -512,7 +515,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="text-center max-w-4xl mx-auto"
           >
             <div className="relative bg-gradient-to-br from-[#1a1f26]/90 to-[#151a20]/90 backdrop-blur-sm rounded-3xl p-10 md:p-12 border border-gray-800/50 overflow-hidden shadow-2xl">
@@ -541,7 +544,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-300 px-4 py-2 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20">
@@ -600,7 +603,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-300 px-4 py-2 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20">
@@ -634,7 +637,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-300 px-4 py-2 rounded-full mb-6 text-sm font-semibold border border-emerald-500/20">
@@ -704,7 +707,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.4 }}
           className="max-w-4xl mx-auto text-center relative z-10"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">

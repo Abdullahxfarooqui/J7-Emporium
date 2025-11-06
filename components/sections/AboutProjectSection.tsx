@@ -131,7 +131,7 @@ const AboutProjectSection = () => {
                   alt="J7 Emporium Architectural Design"
                   fill
                   className="object-cover"
-                  quality={90}
+                  quality={75}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
